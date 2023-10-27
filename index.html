@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+       #form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid;
+        display: none;
+        width: 300px;
+        height: 300px;
+       }
+       .container{
+        text-align: center; 
+        }
+        img{
+            height: 200px;
+            width: 200px;
+        }
+        #data{
+           
+         display: none;
+          
+        }
+      
+    </style>
+</head>
+<body>
+    <button id="clickle">Click me!</button>
+    <div id="form">
+        <div class="container">
+        <h1>Film Search</h1>
+<form action="" id="search">
+    <div id="img">img: <input type="text" id="sekil"></div>
+    <div id="name">filmname: <input type="text" id="ad"></div>
+   <div id="Imdb"> filmimdb: <input type="number" id="reqem"></div>
+<div id="categories">category: <input type="text" id="kateqoriya"></div>
+<div id="rejisor">rejisor: <input type="text" id="rejisyor"></div>
+<button id="Add">Add</button>
+</form>
+</div>
+    </div>
+    <table id="data">
+<tbody id="datavalue">
+  
+  
+</tbody>
+    </table>
+    <script>
+let btn1=document.getElementById('clickle')
+let formblock=document.getElementById('form')
+let form=document.getElementById('search')
+let sekil=document.getElementById('sekil')
+let name=document.getElementById('ad')
+let Imdb=document.getElementById('reqem')
+let categories=document.getElementById('kateqoriya')
+let rejisor=document.getElementById('rejisyor')
+let Add=document.getElementById('Add')
+let table=document.getElementById('data')
+let datavalue=document.getElementById('datavalue')
+// let namevalue=document.getElementById('namevalue')
+// let Imdbvalue=document.getElementById('Imdbvalue')
+// let categoriesvalue=document.getElementById('categoriesvalue')
+// let rejisorvalue=document.getElementById('rejisorvalue')
+// datavalue.append(sil,duzelt)
+name .textContent=""
+Imdb.textContent=""
+categories.textContent=""
+rejisor .textContent=''
+
+btn1.addEventListener('click',(e)=>{
+    e.preventDefault()
+    formblock.style.display='block'
+    table.style.display='none'
+})
+
+Add.addEventListener('click',(e)=>{
+    e.preventDefault()
+    
+        let tr=document.createElement('tr')
+  tr.style.display='none'
+let td_img=document.createElement('td')
+let img=document.createElement('img')
+tr.style.display='flex'
+tr.style.alignItems='center'
+tr.style.justifyContent='center'
+td_img.append(img)
+let td_name=document.createElement('td')
+let td_imdb=document.createElement('td')
+let td_categories=document.createElement('td')
+let td_rejisor=document.createElement('td')
+let duzelt=document.createElement('button')
+let sil=document.createElement('button')
+
+let memory
+
+
+
+
+table.append(datavalue)
+    table.style.display='block'
+    formblock.style.display='block'
+
+   
+    img.src=sekil.value
+td_name .textContent=name.value
+td_imdb.textContent=Imdb.value
+td_categories.textContent=categories.value
+td_rejisor .textContent=rejisor.value
+duzelt.textContent='edit'
+sil.textContent='delete'
+datavalue.append(tr)
+tr.append(td_img,td_name,td_imdb,td_categories,td_rejisor, duzelt,sil)
+sil.addEventListener('click',(e)=>{
+    e.preventDefault()
+tr.style.display='none'
+})
+
+duzelt.addEventListener('click',()=>{
+    memory=tr
+
+     
+sekil.value=img.src
+name.value=td_name .textContent
+Imdb.value=td_imdb.textContent
+categories.value=td_categories.textContent
+rejisor.value=td_rejisor.textContent
+Add.addEventListener("click",function(){
+        tr.remove()
+    })
+    
+
+
+    Add.textContent = "Edit"
+   
+})
+})
+
+
+
+//     e.preventDefault()
+//     formblock.style.display='block'
+//   table.style.display='block'
+//   let tr=document.createElement('tr')
+  
+// let td_img=document.createElement('td')
+// let img=document.createElement('img')
+// tr.style.display='flex'
+// tr.style.alignItems='center'
+// tr.style.justifyContent='center'
+// td_img.append(img)
+// let td_name=document.createElement('td')
+// let td_imdb=document.createElement('td')
+// let td_categories=document.createElement('td')
+// let td_rejisor=document.createElement('td')
+// let duzelt=document.createElement('button')
+// let sil=document.createElement('button')
+// tr.append(td_img,td_name,td_imdb,td_categories,td_rejisor, duzelt,sil)
+
+// duzelt.textContent='edit'
+// sil.textContent='delete'
+// table.append(datavalue)
+
+// datavalue.append(tr)
+// img.src=sekil.value
+// td_name .textContent=name.value
+// td_imdb.textContent=Imdb.value
+// td_categories.textContent=categories.value
+// td_rejisor .textContent=rejisor.value
+
+
+
+
+    </script>
+</body>
+</html>
